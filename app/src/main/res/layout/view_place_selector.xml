@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/text_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/secondary_text"
+        android:textSize="12sp"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/text_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/text_hint"
+        android:textSize="16sp"
+        tools:text="Calle Velazquez, 18"/>
+
+    <TextView
+        android:id="@+id/text_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_street"
+        android:layout_toEndOf="@id/text_hint"
+        tools:text="Madrid"/>
+
+    <ImageView
+        android:id="@+id/image_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
