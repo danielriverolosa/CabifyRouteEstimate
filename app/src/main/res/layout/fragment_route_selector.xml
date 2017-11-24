@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme">
+
+    <com.rivero.daniel.cabifyestimate.presentation.common.custom.PlaceSelector
+        android:id="@+id/place_selector_origin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:drawableToEnd="@drawable/ic_departure"
+        app:hint="Recogida"/>
+
+    <com.rivero.daniel.cabifyestimate.presentation.common.custom.PlaceSelector
+        android:id="@+id/place_selector_destiny"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/place_selector_origin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:drawableToEnd="@drawable/ic_place"
+        app:hint="Destino"
+        tools:visibility="visible"/>
+
+    <Button
+        android:id="@+id/button_continue"
+        style="@style/AccentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Seleccionar destino"/>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

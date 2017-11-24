@@ -14,6 +14,7 @@ public class RouteCalculatorActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFragmentContainer(R.id.fragment_container, RouteSelectorFragment.getInstance());
     }
 
     @Override
