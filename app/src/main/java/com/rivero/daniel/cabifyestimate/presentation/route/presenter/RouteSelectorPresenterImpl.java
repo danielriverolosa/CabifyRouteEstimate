@@ -22,7 +22,7 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
     private Context context;
 
     @Inject
-    RouteSelectorPresenterImpl(Context context) {
+    RouteSelectorPresenterImpl(@ActivityContext Context context) {
         this.context = context;
     }
 

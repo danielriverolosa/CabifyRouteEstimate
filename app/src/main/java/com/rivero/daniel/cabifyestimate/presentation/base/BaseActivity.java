@@ -41,9 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @BindView(R.id.fragment_container)
     FrameLayout container;
 
-    @Inject
-    Navigator navigator;
-
     protected boolean displayHomeAsUpEnabled;
 
     @Override

@@ -2,6 +2,11 @@ package com.rivero.daniel.cabifyestimate.infrastructure.di.module;
 
 import android.content.Context;
 
+import com.rivero.daniel.cabifyestimate.data.service.LocationServiceImpl;
+import com.rivero.daniel.cabifyestimate.data.service.PermissionServiceImpl;
+import com.rivero.daniel.cabifyestimate.domain.service.LocationService;
+import com.rivero.daniel.cabifyestimate.domain.service.PermissionService;
+import com.rivero.daniel.cabifyestimate.infrastructure.di.scope.ApplicationContext;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.JobExecutor;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.MainThreadExecutor;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.ThreadExecutor;
@@ -24,8 +29,9 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
+    @ApplicationContext
     public Context providesApplicationContext() {
-        return application;
+        return application.getApplicationContext();
     }
 
     @Provides

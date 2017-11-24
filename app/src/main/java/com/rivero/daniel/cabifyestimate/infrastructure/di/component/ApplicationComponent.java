@@ -1,7 +1,5 @@
 package com.rivero.daniel.cabifyestimate.infrastructure.di.component;
 
-import android.content.Context;
-
 import com.rivero.daniel.cabifyestimate.infrastructure.di.module.ApplicationModule;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.MainThreadExecutor;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.ThreadExecutor;
@@ -17,7 +15,6 @@ public interface ApplicationComponent {
 
     void inject(AndroidApplication application);
 
-    Context context();
     ThreadExecutor threadExecutor();
     MainThreadExecutor mainThreadExecutor();
 }
