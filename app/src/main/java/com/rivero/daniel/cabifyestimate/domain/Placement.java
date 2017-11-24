@@ -3,10 +3,12 @@ package com.rivero.daniel.cabifyestimate.domain;
 
 import java.io.Serializable;
 
-public class Place implements Serializable {
+public class Placement implements Serializable {
 
     private String latitude;
     private String longitude;
+    private String street;
+    private String city;
     private Contact contact;
 
     public String getLatitude() {
@@ -23,6 +25,22 @@ public class Place implements Serializable {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public Contact getContact() {

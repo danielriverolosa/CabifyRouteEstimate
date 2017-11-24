@@ -6,24 +6,24 @@ import java.util.Date;
 
 public class Route implements Serializable {
 
-    private Place startPlace;
-    private Place endPlace;
+    private Placement startPlacement;
+    private Placement endPlacement;
     private Date startAt;
 
-    public Place getStartPlace() {
-        return startPlace;
+    public Placement getStartPlacement() {
+        return startPlacement;
     }
 
-    public void setStartPlace(Place startPlace) {
-        this.startPlace = startPlace;
+    public void setStartPlacement(Placement startPlacement) {
+        this.startPlacement = startPlacement;
     }
 
-    public Place getEndPlace() {
-        return endPlace;
+    public Placement getEndPlacement() {
+        return endPlacement;
     }
 
-    public void setEndPlace(Place endPlace) {
-        this.endPlace = endPlace;
+    public void setEndPlacement(Placement endPlacement) {
+        this.endPlacement = endPlacement;
     }
 
     public Date getStartAt() {
