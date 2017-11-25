@@ -5,5 +5,5 @@ public class ConstantUtils {
 
     public static final int PLACE_AUTOCOMPLETE_ORIGIN_REQUEST_CODE = 100;
     public static final int PLACE_AUTOCOMPLETE_DESTINY_REQUEST_CODE = 101;
-
+    public static final int LOCATION_PERMISSION_REQUEST_CODE = 102;
 }
