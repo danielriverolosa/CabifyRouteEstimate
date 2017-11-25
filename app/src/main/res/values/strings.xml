@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CabifyRouteEstimate</string>
+
+    <string name="route_selector_button_select_destiny_text">Seleccionar destino</string>
+    <string name="route_selector_button_continue_text">Calcular ruta</string>
+
+    <string name="route_selector_destiny_hint">Destino</string>
+    <string name="route_selector_origin_hint">Recogida</string>
 </resources>

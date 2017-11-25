@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:drawableToEnd="@drawable/ic_departure"
-        app:hint="Recogida"/>
+        app:hint="@string/route_selector_origin_hint"/>
 
     <com.rivero.daniel.cabifyestimate.presentation.common.custom.PlaceSelector
         android:id="@+id/place_selector_destiny"
@@ -27,7 +27,7 @@
         android:layout_marginTop="8dp"
         android:visibility="gone"
         app:drawableToEnd="@drawable/ic_place"
-        app:hint="Destino"
+        app:hint="@string/route_selector_destiny_hint"
         tools:visibility="visible"/>
 
     <Button
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Seleccionar destino"/>
+        android:text="@string/route_selector_button_select_destiny_text"/>
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
