@@ -10,6 +10,9 @@ public abstract class BasePresenter<T extends BaseView> implements Presenter<T> 
         this.view = view;
     }
 
+    @Override
+    public void onResume() {}
+
     public T getView() {
         return view;
     }
