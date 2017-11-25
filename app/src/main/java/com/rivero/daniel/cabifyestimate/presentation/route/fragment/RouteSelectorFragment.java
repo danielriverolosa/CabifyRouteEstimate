@@ -18,6 +18,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.rivero.daniel.cabifyestimate.R;
 import com.rivero.daniel.cabifyestimate.domain.Placement;
@@ -26,7 +27,10 @@ import com.rivero.daniel.cabifyestimate.presentation.base.BaseFragment;
 import com.rivero.daniel.cabifyestimate.presentation.common.custom.PlaceSelector;
 import com.rivero.daniel.cabifyestimate.presentation.common.utils.ConstantUtils;
 import com.rivero.daniel.cabifyestimate.presentation.route.presenter.RouteSelectorPresenter;
+import com.rivero.daniel.cabifyestimate.presentation.route.utils.BitmapUtils;
 import com.rivero.daniel.cabifyestimate.presentation.route.view.RouteSelectorView;
+
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
@@ -50,6 +54,8 @@ public class RouteSelectorFragment extends BaseFragment implements RouteSelector
     RouteSelectorPresenter presenter;
 
     private GoogleMap googleMap;
+
+    private HashMap<Integer, Marker> hashMapMarker = new HashMap<>();
 
     public static RouteSelectorFragment getInstance() {
         return new RouteSelectorFragment();
@@ -118,6 +124,32 @@ public class RouteSelectorFragment extends BaseFragment implements RouteSelector
     }
 
     @Override
+    public void setMarker(LatLng latLng, int tag) {
+        if (hashMapMarker.containsKey(tag)) {
+            Marker oldMarker = hashMapMarker.get(tag);
+            hashMapMarker.remove(tag);
+            oldMarker.remove();
+        }
+
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(latLng)
+                .icon(BitmapUtils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_marker));
+
+        Marker marker = googleMap.addMarker(markerOptions);
+        hashMapMarker.put(tag, marker);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(getCameraPosition(), getResources().getDimensionPixelSize(R.dimen.map_view_padding)));
+    }
+
+    private LatLngBounds getCameraPosition() {
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
+        for (Integer key : hashMapMarker.keySet()) {
+            Marker marker = hashMapMarker.get(key);
+            builder.include(marker.getPosition());
+        }
+        return builder.build();
+    }
+
     public void onResume() {
         super.onResume();
         mapView.onResume();
