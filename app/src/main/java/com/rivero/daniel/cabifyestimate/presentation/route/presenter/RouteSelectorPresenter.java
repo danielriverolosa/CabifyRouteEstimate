@@ -15,4 +15,10 @@ public interface RouteSelectorPresenter extends Presenter<RouteSelectorView> {
     void onClickShowPlaceSelectorDestiny();
 
     void onClickContinue(Placement origin, Placement destiny);
+
+    void onStartLocationService();
+
+    void onStopLocationService();
+
+    void requestLocation();
 }

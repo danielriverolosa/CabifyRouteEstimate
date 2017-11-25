@@ -75,6 +75,8 @@ public class LocationServiceImpl implements LocationService, GoogleApiClient.Con
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestLocationPermission();
             } else {
+                // Use deprecated method because Google recommend use it because FusedLocationProviderClient
+                // has crash problems until Google Play Services 12.0.0, which is expected to ship in early 2018
                 Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
                 notifyLocation(location);
             }
