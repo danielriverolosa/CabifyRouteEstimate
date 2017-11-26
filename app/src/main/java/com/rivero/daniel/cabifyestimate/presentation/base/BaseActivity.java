@@ -52,9 +52,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     @LayoutRes
-    public abstract int getLayout();
+    protected abstract int getLayout();
 
-    public abstract void initializeInjector();
+    protected abstract void initializeInjector();
 
     protected ViewComponent buildInjector(ViewModule viewModule) {
         return DaggerViewComponent.builder()
@@ -69,7 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         ButterKnife.bind(this);
     }
 
-    private void initializeToolbar() {
+    protected void initializeToolbar() {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(displayHomeAsUpEnabled);

@@ -8,7 +8,7 @@ import javax.inject.Inject;
 public abstract class BasePresenter<T extends BaseView> implements Presenter<T> {
 
     @Inject
-    Navigator navigator;
+    protected Navigator navigator;
 
     private T view;
 

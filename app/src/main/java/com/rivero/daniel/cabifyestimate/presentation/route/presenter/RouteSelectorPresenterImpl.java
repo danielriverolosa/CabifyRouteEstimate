@@ -85,6 +85,7 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
                 .destinyPlacement(destiny)
                 .build();
 
+        navigator.showEstimateList(route);
     }
 
     @Override
