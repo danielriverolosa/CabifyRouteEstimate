@@ -10,14 +10,14 @@ import com.rivero.daniel.cabifyestimate.data.service.LocationServiceImpl;
 import com.rivero.daniel.cabifyestimate.domain.Placement;
 import com.rivero.daniel.cabifyestimate.domain.Route;
 import com.rivero.daniel.cabifyestimate.domain.service.LocationService;
+import com.rivero.daniel.cabifyestimate.infrastructure.di.scope.ViewScope;
 import com.rivero.daniel.cabifyestimate.presentation.base.BasePresenter;
 import com.rivero.daniel.cabifyestimate.presentation.common.utils.ConstantUtils;
 import com.rivero.daniel.cabifyestimate.presentation.route.view.RouteSelectorView;
 
 import javax.inject.Inject;
 
-import timber.log.Timber;
-
+@ViewScope
 public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView> implements RouteSelectorPresenter, LocationServiceImpl.LocationServiceListener {
 
     private static final int ORIGIN_TAG =  111;
