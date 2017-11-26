@@ -1,6 +1,8 @@
 package com.rivero.daniel.cabifyestimate.infrastructure.di.module;
 
 import com.rivero.daniel.cabifyestimate.infrastructure.di.scope.ViewScope;
+import com.rivero.daniel.cabifyestimate.presentation.route.presenter.EstimateListPresenter;
+import com.rivero.daniel.cabifyestimate.presentation.route.presenter.EstimateListPresenterImpl;
 import com.rivero.daniel.cabifyestimate.presentation.route.presenter.RouteSelectorPresenter;
 import com.rivero.daniel.cabifyestimate.presentation.route.presenter.RouteSelectorPresenterImpl;
 
@@ -16,4 +18,9 @@ public class PresenterModule {
         return routeSelectorPresenter;
     }
 
+    @Provides
+    @ViewScope
+    EstimateListPresenter provideEstimateListPresenter(EstimateListPresenterImpl estimateListPresenter) {
+        return estimateListPresenter;
+    }
 }

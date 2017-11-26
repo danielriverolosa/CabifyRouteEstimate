@@ -7,6 +7,7 @@ import com.rivero.daniel.cabifyestimate.infrastructure.di.module.ViewModule;
 import com.rivero.daniel.cabifyestimate.infrastructure.di.scope.ViewScope;
 import com.rivero.daniel.cabifyestimate.presentation.base.navigator.Navigator;
 import com.rivero.daniel.cabifyestimate.presentation.route.RouteCalculatorActivity;
+import com.rivero.daniel.cabifyestimate.presentation.route.fragment.EstimateListFragment;
 import com.rivero.daniel.cabifyestimate.presentation.route.fragment.RouteSelectorFragment;
 
 import dagger.Component;
@@ -19,4 +20,6 @@ public interface ViewComponent {
     void inject(RouteCalculatorActivity routeCalculatorActivity);
 
     void inject(RouteSelectorFragment routeSelectorFragment);
+
+    void inject(EstimateListFragment estimateListFragment);
 }

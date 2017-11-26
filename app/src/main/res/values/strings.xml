@@ -7,4 +7,6 @@
     <string name="route_selector_destiny_hint">Destino</string>
     <string name="route_selector_origin_hint">Recogida</string>
     <string name="street_name">%1$s, %2$s</string>
+
+    <string name="estimate_list_toolbar_title">Vehículos disponibles</string>
 </resources>

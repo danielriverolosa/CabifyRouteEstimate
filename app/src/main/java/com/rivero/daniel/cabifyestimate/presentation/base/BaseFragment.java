@@ -13,6 +13,8 @@ import com.rivero.daniel.cabifyestimate.infrastructure.di.component.ViewComponen
 import com.rivero.daniel.cabifyestimate.infrastructure.di.module.ViewModule;
 import com.rivero.daniel.cabifyestimate.presentation.AndroidApplication;
 
+import java.io.Serializable;
+
 import butterknife.ButterKnife;
 
 
@@ -31,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
                 .build();
     }
 
-    public abstract void initializeInjector();
+    protected abstract void initializeInjector();
 
     @Nullable
     @Override
@@ -40,12 +42,35 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     }
 
     @LayoutRes
-    public abstract int getLayoutContainer();
+    protected abstract int getLayoutContainer();
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+    }
+
+    public <T extends Serializable> T getParamByClass(Class<T> paramClass) {
+        return getParamByClass(paramClass, "");
+    }
+
+    @SuppressWarnings("unchecked")
+    protected <T extends Serializable> T getParamByClass(Class<T> paramClass, String tag) {
+        if (getArguments() == null) {
+            return null;
+        }
+        return (T) getArguments().getSerializable(paramClass.getName() + tag);
+    }
+
+    protected <T extends Serializable> void setParamByClass(Class<T> registeredClass, T object) {
+        setParamByClass(registeredClass, object, "");
+    }
+
+    protected <T extends Serializable> void setParamByClass(Class<T> registeredClass, T object, String tag) {
+        if (getArguments() == null) {
+            setArguments(new Bundle());
+        }
+        getArguments().putSerializable(registeredClass.getName() + tag, object);
     }
 
     @Override
@@ -68,6 +93,5 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     public void close() {
         getActivity().getSupportFragmentManager().popBackStackImmediate();
     }
-
 
 }
