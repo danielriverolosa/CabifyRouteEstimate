@@ -124,12 +124,13 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
 
     private void setMarkerToMap(Double latitude, Double longitude) {
         LatLng latLng = new LatLng(latitude, longitude);
-        getView().setMarker(latLng, ConstantUtils.PLACE_AUTOCOMPLETE_ORIGIN_REQUEST_CODE);
+        getView().setMarker(latLng, ORIGIN_TAG);
     }
 
     @Override
     public void onLocationNotFound() {
-        Timber.e("Location not found");
-        getView().showMessage("Location not found");
+        String locationNotFount = "Location not found";
+        Timber.e(locationNotFount);
+        getView().showMessage(locationNotFount);
     }
 }
