@@ -59,6 +59,7 @@ public class EstimateListFragment extends BaseFragment implements EstimateListVi
         adapter = new EstimateAdapter();
 
         recyclerEstimateList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerEstimateList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         recyclerEstimateList.setAdapter(adapter);
     }
 
