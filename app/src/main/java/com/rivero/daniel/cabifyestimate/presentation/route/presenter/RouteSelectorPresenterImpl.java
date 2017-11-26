@@ -17,6 +17,8 @@ import com.rivero.daniel.cabifyestimate.presentation.route.view.RouteSelectorVie
 
 import javax.inject.Inject;
 
+import timber.log.Timber;
+
 @ViewScope
 public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView> implements RouteSelectorPresenter, LocationServiceImpl.LocationServiceListener {
 
@@ -127,6 +129,7 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
 
     @Override
     public void onLocationNotFound() {
-
+        Timber.e("Location not found");
+        getView().showMessage("Location not found");
     }
 }

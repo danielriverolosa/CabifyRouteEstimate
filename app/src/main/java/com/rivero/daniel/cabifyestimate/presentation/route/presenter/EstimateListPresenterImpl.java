@@ -11,6 +11,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import timber.log.Timber;
+
 @ViewScope
 public class EstimateListPresenterImpl extends BasePresenter<EstimateListView> implements EstimateListPresenter, InteractorCallback<List<Estimate>> {
 
@@ -34,6 +36,7 @@ public class EstimateListPresenterImpl extends BasePresenter<EstimateListView> i
 
     @Override
     public void onError(Throwable t) {
-
+        Timber.e(t.getMessage());
+        getView().showMessage("Estimate has been failed");
     }
 }
