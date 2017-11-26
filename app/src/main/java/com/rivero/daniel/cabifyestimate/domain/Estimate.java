@@ -7,9 +7,13 @@ public class Estimate implements Serializable {
 
     private Vehicle vehicle;
     private Integer totalPrice;
-    private String currency;
-    private String currencySymbol;
     private String priceFormatted;
+
+    private Estimate(Builder builder) {
+        setVehicle(builder.vehicle);
+        setTotalPrice(builder.totalPrice);
+        setPriceFormatted(builder.priceFormatted);
+    }
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -27,27 +31,40 @@ public class Estimate implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getCurrencySymbol() {
-        return currencySymbol;
-    }
-
-    public void setCurrencySymbol(String currencySymbol) {
-        this.currencySymbol = currencySymbol;
-    }
-
     public String getPriceFormatted() {
         return priceFormatted;
     }
 
     public void setPriceFormatted(String priceFormatted) {
         this.priceFormatted = priceFormatted;
+    }
+
+
+    public static final class Builder {
+        private Vehicle vehicle;
+        private Integer totalPrice;
+        private String priceFormatted;
+
+        public Builder() {
+        }
+
+        public Builder vehicle(Vehicle vehicle) {
+            this.vehicle = vehicle;
+            return this;
+        }
+
+        public Builder totalPrice(Integer totalPrice) {
+            this.totalPrice = totalPrice;
+            return this;
+        }
+
+        public Builder priceFormatted(String priceFormatted) {
+            this.priceFormatted = priceFormatted;
+            return this;
+        }
+
+        public Estimate build() {
+            return new Estimate(this);
+        }
     }
 }

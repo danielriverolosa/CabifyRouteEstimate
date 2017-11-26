@@ -5,25 +5,33 @@ import java.io.Serializable;
 
 public class Placement implements Serializable {
 
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
     private String street;
     private String city;
     private Contact contact;
 
-    public String getLatitude() {
+    private Placement(Builder builder) {
+        setLatitude(builder.latitude);
+        setLongitude(builder.longitude);
+        setStreet(builder.street);
+        setCity(builder.city);
+        setContact(builder.contact);
+    }
+
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -51,8 +59,44 @@ public class Placement implements Serializable {
         this.contact = contact;
     }
 
-    public String[] getLocation() {
-        return new String[]{latitude, longitude};
-    }
 
+    public static final class Builder {
+        private double latitude;
+        private double longitude;
+        private String street;
+        private String city;
+        private Contact contact;
+
+        public Builder() {
+        }
+
+        public Builder latitude(double latitude) {
+            this.latitude = latitude;
+            return this;
+        }
+
+        public Builder longitude(double longitude) {
+            this.longitude = longitude;
+            return this;
+        }
+
+        public Builder street(String street) {
+            this.street = street;
+            return this;
+        }
+
+        public Builder city(String city) {
+            this.city = city;
+            return this;
+        }
+
+        public Builder contact(Contact contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        public Placement build() {
+            return new Placement(this);
+        }
+    }
 }

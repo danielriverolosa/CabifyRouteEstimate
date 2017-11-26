@@ -8,6 +8,7 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.maps.model.LatLng;
 import com.rivero.daniel.cabifyestimate.data.service.LocationServiceImpl;
 import com.rivero.daniel.cabifyestimate.domain.Placement;
+import com.rivero.daniel.cabifyestimate.domain.Route;
 import com.rivero.daniel.cabifyestimate.domain.service.LocationService;
 import com.rivero.daniel.cabifyestimate.presentation.base.BasePresenter;
 import com.rivero.daniel.cabifyestimate.presentation.common.utils.ConstantUtils;
@@ -58,10 +59,17 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
 
     @NonNull
     private Placement getPlacement(Place place) {
-        Placement placement = new Placement();
-        placement.setStreet((String) place.getName());
-        placement.setCity(locationService.getCityNameByCoordinates(place.getLatLng().latitude, place.getLatLng().longitude));
-        return placement;
+        Double latitude = place.getLatLng().latitude;
+        Double longitude = place.getLatLng().longitude;
+
+        String city = locationService.getCityNameByCoordinates(latitude, longitude);
+
+        return new Placement.Builder()
+                .latitude(latitude)
+                .longitude(longitude)
+                .street((String) place.getName())
+                .city(city)
+                .build();
     }
 
     @Override
@@ -72,7 +80,11 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
 
     @Override
     public void onClickContinue(Placement origin, Placement destiny) {
-        getView().showMessage("Continue");
+        Route route = new Route.Builder()
+                .originPlacement(origin)
+                .destinyPlacement(destiny)
+                .build();
+
     }
 
     @Override
@@ -95,9 +107,12 @@ public class RouteSelectorPresenterImpl extends BasePresenter<RouteSelectorView>
         Double latitude = location.getLatitude();
         Double longitude = location.getLongitude();
 
-        Placement placement = new Placement();
-        placement.setStreet(locationService.getStreetByCoordinates(latitude, longitude));
-        placement.setCity(locationService.getCityNameByCoordinates(latitude, longitude));
+        Placement placement = new Placement.Builder()
+                .latitude(latitude)
+                .longitude(longitude)
+                .street(locationService.getStreetByCoordinates(latitude, longitude))
+                .city(locationService.getCityNameByCoordinates(latitude, longitude))
+                .build();
 
         getView().updateOrigin(placement);
         setMarkerToMap(latitude, longitude);
