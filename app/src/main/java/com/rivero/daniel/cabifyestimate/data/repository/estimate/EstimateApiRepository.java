@@ -16,6 +16,7 @@ import com.rivero.daniel.cabifyestimate.domain.repository.EstimateRepository;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -39,6 +40,7 @@ public class EstimateApiRepository extends BaseRepository implements EstimateRep
         Call<List<EstimateDataModel>> call = estimateApi.calculateEstimate(buildRequest(route));
 
         List<EstimateDataModel> estimateDataModelList = executeCall(call);
+        Collections.sort(estimateDataModelList, (o1, o2) -> ((Integer) o2.getTotalPrice()).compareTo(o1.getTotalPrice()));
 
         return CollectionUtils.collect(estimateDataModelList, this::buildEstimate, new ArrayList<>());
     }

@@ -8,7 +8,7 @@ public class EstimateDataModel {
     @SerializedName("vehicle_type")
     private VehicleDataModel vehicle;
     @SerializedName("total_price")
-    private Integer totalPrice;
+    private int totalPrice;
     @SerializedName("price_formatted")
     private String priceFormatted;
 
@@ -16,7 +16,7 @@ public class EstimateDataModel {
         return vehicle;
     }
 
-    public Integer getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 

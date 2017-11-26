@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Estimate implements Serializable {
 
     private Vehicle vehicle;
-    private Integer totalPrice;
+    private int totalPrice;
     private String priceFormatted;
 
     private Estimate(Builder builder) {
@@ -23,11 +23,11 @@ public class Estimate implements Serializable {
         this.vehicle = vehicle;
     }
 
-    public Integer getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Integer totalPrice) {
+    public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -42,7 +42,7 @@ public class Estimate implements Serializable {
 
     public static final class Builder {
         private Vehicle vehicle;
-        private Integer totalPrice;
+        private int totalPrice;
         private String priceFormatted;
 
         public Builder() {
@@ -53,7 +53,7 @@ public class Estimate implements Serializable {
             return this;
         }
 
-        public Builder totalPrice(Integer totalPrice) {
+        public Builder totalPrice(int totalPrice) {
             this.totalPrice = totalPrice;
             return this;
         }
