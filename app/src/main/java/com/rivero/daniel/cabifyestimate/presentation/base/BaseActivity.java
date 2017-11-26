@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
@@ -136,12 +137,16 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void showMessage(String message) {
-        Snackbar.make(container, message, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(container, message, Snackbar.LENGTH_SHORT)
+                .setActionTextColor(ContextCompat.getColor(this, R.color.accent))
+                .show();
     }
 
     @Override
     public void showMessage(int message) {
-        Snackbar.make(container, message, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(container, message, Snackbar.LENGTH_SHORT)
+                .setActionTextColor(ContextCompat.getColor(this, R.color.accent))
+                .show();
     }
 
     @Override
