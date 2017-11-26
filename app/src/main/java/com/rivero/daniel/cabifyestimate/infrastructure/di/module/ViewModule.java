@@ -53,8 +53,8 @@ public class ViewModule {
 
     @Provides
     @ViewScope
-    Navigator navigator(Navigator navigator) {
-        return navigator;
+    Navigator navigator() {
+        return new Navigator(provideContext());
     }
 
     @Provides
