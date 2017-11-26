@@ -2,12 +2,10 @@ package com.rivero.daniel.cabifyestimate.infrastructure.di.module;
 
 import android.content.Context;
 
-import com.rivero.daniel.cabifyestimate.data.service.LocationServiceImpl;
-import com.rivero.daniel.cabifyestimate.data.service.PermissionServiceImpl;
-import com.rivero.daniel.cabifyestimate.domain.service.LocationService;
-import com.rivero.daniel.cabifyestimate.domain.service.PermissionService;
+import com.rivero.daniel.cabifyestimate.data.repository.estimate.EstimateApiRepository;
 import com.rivero.daniel.cabifyestimate.data.repository.datasource.api.ApiClientGenerator;
 import com.rivero.daniel.cabifyestimate.data.repository.datasource.api.RetrofitApiClientGenerator;
+import com.rivero.daniel.cabifyestimate.domain.repository.EstimateRepository;
 import com.rivero.daniel.cabifyestimate.infrastructure.di.scope.ApplicationContext;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.JobExecutor;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.MainThreadExecutor;
@@ -53,4 +51,11 @@ public class ApplicationModule {
     ApiClientGenerator provideApiClientGenerator(RetrofitApiClientGenerator apiClientGenerator) {
         return apiClientGenerator;
     }
+
+    @Provides
+    @Singleton
+    EstimateRepository provideEstimateRepository(EstimateApiRepository estimateRepository) {
+        return estimateRepository;
+    }
+
 }

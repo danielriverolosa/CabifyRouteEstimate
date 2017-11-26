@@ -1,5 +1,6 @@
 package com.rivero.daniel.cabifyestimate.infrastructure.di.component;
 
+import com.rivero.daniel.cabifyestimate.domain.repository.EstimateRepository;
 import com.rivero.daniel.cabifyestimate.infrastructure.di.module.ApplicationModule;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.MainThreadExecutor;
 import com.rivero.daniel.cabifyestimate.infrastructure.executor.ThreadExecutor;
@@ -17,4 +18,5 @@ public interface ApplicationComponent {
 
     ThreadExecutor threadExecutor();
     MainThreadExecutor mainThreadExecutor();
+    EstimateRepository estimateRepository();
 }
